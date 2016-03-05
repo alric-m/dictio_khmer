@@ -6,7 +6,7 @@ This Rails app aims to provide a platform validating your skills obtained in Khm
 
 * Rails version => 4.2.5.2
 
-== DESCRIPTION
+== HOW TO
 
 * <tt>bundle</tt>
 
@@ -19,7 +19,7 @@ This Rails app aims to provide a platform validating your skills obtained in Khm
 
 * Better seeds
 
-* Quizzes
+* Finish quizzes
 
 * Devise (admin / teacher / student)
 
