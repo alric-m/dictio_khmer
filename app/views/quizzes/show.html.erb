@@ -1,0 +1,9 @@
+<div class="panel">
+  <div class="panel-heading"><%= t('activerecord.controllers.quizzes.show') %></div>
+  <div class="panel-body">
+    <%= "#{@quiz.score} / #{@quiz.questions.count}" %>
+    <div class="form-group">
+      <%= link_to t('restart'), new_quiz_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

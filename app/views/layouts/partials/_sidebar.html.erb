@@ -6,5 +6,9 @@
         </li>
         <li><%= link_to I18n.t('activerecord.controllers.words.index'), words_path %></li>
         <li><%= link_to I18n.t('activerecord.controllers.words.new'), new_word_path %></li>
+        <li class="nav-heading">
+          <span><%= t('activerecord.models.quiz') %></span>
+        </li>
+        <li><%= link_to I18n.t('activerecord.controllers.quizzes.new'), new_quiz_path %></li>
     </ul>
 </aside>

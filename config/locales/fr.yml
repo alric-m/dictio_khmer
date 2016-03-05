@@ -1,5 +1,6 @@
 fr:
   dictionary: "Dictionnaire"
+  restart: "Recommencer"
   actions:
     edit: "Éditer"
     delete: "Supprimer"
@@ -14,6 +15,7 @@ fr:
         index: "Tous les mots"
       quizzes:
         new: "Nouveau quiz"
+        show: "Résultat"
     attributes:
       word:
         definition_fr: "Traduction francaise"
@@ -22,3 +24,19 @@ fr:
         phonetic: "Transcription phonétique"
         word_type: "Type de mot"
         tag_list: "Mots-clés"
+      quiz:
+        score: "Score"
+        timer: "Timer"
+        questions_count: "Nombre de questions"
+        default_question_type: "Type de question par défaut"
+        default_word_type: "Type de mot par défaut"
+        default_tags: "Mots-clés par défaut"
+        done: "Fait"
+      question:
+        question_type: "Type de question"
+        word_type: "Type de mot"
+        themes: "Mot-clé"
+        response: "Réponse donée"
+        answer: "Bonne éponse"
+        result: "Résultat"
+        done: "Fait"

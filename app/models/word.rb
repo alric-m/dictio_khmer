@@ -7,9 +7,11 @@ class Word < ActiveRecord::Base
   translates :definition
   globalize_accessors
 
+  # Relations
+  has_many :questions
+
   # Validations
   validates :phonetic, :presence => true
-  # validates :name_kh, presence: true, uniqueness: true
 
   def tag_list_tokens=(tokens)
     self.tag_list = tokens.gsub("'", "")

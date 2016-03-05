@@ -1,0 +1,19 @@
+<div class="panel">
+  <div class="panel-heading"><%= t('activerecord.controllers.quizzes.new') %></div>
+  <div class="panel-body">
+    <%= form_for [@quiz, @question], html: { class: "form-horizontal" } do |f| %>
+      <fieldset>
+        <legend>
+          <%= f.label :questions %>
+        </legend>
+        <div class="form-group">
+          <%= f.label @word_definition, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.text_field :response, class: "form-control" %>
+          </div>
+        </div>
+      </fieldset>
+      <%= f.submit "Valider", class: "btn btn-primary" %>
+    <% end -%>
+  </div>
+</div>

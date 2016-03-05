@@ -13,9 +13,9 @@ Rails.application.routes.draw do
       end
     end
 
-  # resources :quizzes do
-  #   resource :questions
-  # end
+    resources :quizzes do
+      resources :questions
+    end
 
   end
 

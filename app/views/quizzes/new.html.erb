@@ -1,0 +1,34 @@
+<div class="panel">
+  <div class="panel-heading"><%= t('activerecord.controllers.quizzes.new') %></div>
+  <div class="panel-body">
+    <%= form_for @quiz, html: { class: "form-horizontal" } do |f| %>
+      <fieldset>
+        <div class="form-group">
+          <%= f.label :questions_count, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.select :questions_count, options_for_select(["5", "10", "15", "20"]), {}, required: "required", class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :default_question_type, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.select :default_question_type, options_for_select(getQuestionTypes), {}, multiple: "multiple", class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :default_word_type, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.select :default_word_type, options_for_select(getTypes), {}, multiple: "multiple", class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :default_tags, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.select :default_tags, options_for_select(getThemes), {}, multiple: "multiple", class: "form-control" %>
+          </div>
+        </div>
+      </fieldset>
+      <%= f.submit "Valider", class: "btn btn-primary" %>
+    <% end -%>
+  </div>
+</div>
