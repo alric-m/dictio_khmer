@@ -1,28 +1,28 @@
-== README
+== DESCRIPTION
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This Rails app aims to provide a platform validating your skills obtained in Khmer (from English or French).
 
-Things you may want to cover:
+* Ruby version => 2.2.3
 
-* Ruby version
+* Rails version => 4.2.5.2
 
-* System dependencies
+== DESCRIPTION
 
-* Configuration
+* <tt>bundle</tt>
 
-* Database creation
+* <tt>rake db:seed</tt>
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* <tt>rails s</tt>
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== TO DO
+
+* Better seeds
+
+* Quizzes
+
+* Devise (admin / teacher / student)
+
+* Stats
+
+* Badges / Achievements
