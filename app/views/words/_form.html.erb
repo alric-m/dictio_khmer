@@ -1,0 +1,50 @@
+<div class="panel">
+  <div class="panel-heading">Création d'une nouvelle entrée</div>
+  <div class="panel-body">
+    <%= form_for word, html: { class: "form-horizontal" } do |f| %>
+      <fieldset>
+        <div class="form-group">
+          <%= f.label :definition_fr, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.text_field :definition_fr, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :definition_en, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.text_field :definition_en, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :definition_kh, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.text_field :definition_kh, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :phonetic, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.text_field :phonetic, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :word_type, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.select :word_type, options_for_select(getTypes), {}, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :tag_list, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.text_field :tag_list, data: { load: @word_tags }, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <%= f.submit "Valider", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

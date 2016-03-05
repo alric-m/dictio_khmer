@@ -1,0 +1,52 @@
+body {
+  background-color: #f5f7fa;
+}
+
+.content-wrapper {
+  padding: 20px;
+  position: relative;
+  height: 100%;
+  margin-left: 0;
+  z-index: 111;
+  background-color: #f5f7fa;
+  margin-left: 220px;
+}
+
+.navbar {
+  margin-bottom: 0px;
+  z-index: 117;
+}
+
+.sidebar-wrapper {
+  padding: 0px;
+  padding-top: 60px;
+  height: 100%;
+  width: 220px;
+  overflow: hidden;
+}
+
+#sidebar {
+  position: relative;
+  width: 100%;
+}
+
+.wrapper > aside {
+  position: absolute;
+  width: 220px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 116;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background-color: #fff;
+}
+
+.btn {
+  padding: 5px 10px;
+}
+
+.table > tbody > tr > td.table-entry {
+  vertical-align: middle;
+}
