@@ -1,7 +1,10 @@
 <aside>
   <div class="sidebar-wrapper">
       <ul id="sidebar" class="nav nav-stacked affix">
-        <li><%= link_to "Tous les mots", words_path %></li>
-        <li><%= link_to "Nouvelle entrée", new_word_path %></li>
+        <li class="nav-heading">
+          <span><%= t('activerecord.models.word') %></span>
+        </li>
+        <li><%= link_to I18n.t('activerecord.controllers.words.index'), words_path %></li>
+        <li><%= link_to I18n.t('activerecord.controllers.words.new'), new_word_path %></li>
     </ul>
 </aside>

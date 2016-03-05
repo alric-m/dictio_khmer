@@ -1,0 +1,24 @@
+fr:
+  dictionary: "Dictionnaire"
+  actions:
+    edit: "Éditer"
+    delete: "Supprimer"
+    validate: "Valider"
+  activerecord:
+    models:
+      word: "Dictionnaire"
+      quiz: "Quiz"
+    controllers:
+      words:
+        new: "Nouvelle entrée"
+        index: "Tous les mots"
+      quizzes:
+        new: "Nouveau quiz"
+    attributes:
+      word:
+        definition_fr: "Traduction francaise"
+        definition_en: "Traduction anglaise"
+        definition_kh: "Traduction khmère"
+        phonetic: "Transcription phonétique"
+        word_type: "Type de mot"
+        tag_list: "Mots-clés"

@@ -5,14 +5,14 @@
       <table id="datatable" class="table table-striped table-hover">
         <thead>
           <tr>
-            <th><strong>Définition francaise</strong></th>
-            <th><strong>Définition anglaise</strong></th>
-            <th><strong>Définition khmer</strong></th>
-            <th><strong>Transcription phonétique</strong></th>
-            <th><strong>Type</strong></th>
-            <th><strong>Thème</strong></th>
-            <th><strong>Éditer</strong></th>
-            <th><strong>Supprimer</strong></th>
+            <th><strong><%= t('activerecord.attributes.word.definition_fr') %></strong></th>
+            <th><strong><%= t('activerecord.attributes.word.definition_en') %></strong></th>
+            <th><strong><%= t('activerecord.attributes.word.definition_kh') %></strong></th>
+            <th><strong><%= t('activerecord.attributes.word.phonetic') %></strong></th>
+            <th><strong><%= t('activerecord.attributes.word.word_type') %></strong></th>
+            <th><strong><%= t('activerecord.attributes.word.tag_list') %></strong></th>
+            <th><strong><%= t('actions.edit') %></strong></th>
+            <th><strong><%= t('actions.delete') %></strong></th>
           </tr>
         </thead>
         <tbody>
@@ -28,13 +28,13 @@
               <td>
                 <%= link_to edit_word_path(word), class: "btn btn-default" do %>
                   <em class="fa fa-pencil"></em>
-                  <span>Éditer</span>
+                  <span><%= t('actions.edit') %></span>
                 <% end %>
               </td>
               <td>
                 <%= link_to word, method: :delete, class: "btn btn-danger", data: { confirm: 'Etes-vous sûr de vouloir supprimer ce post-it ?' } do %>
                   <em class="fa fa-trash"></em>
-                  <span>Supprimer</span>
+                  <span><%= t('actions.delete') %></span>
                 <% end %>
               </td>
             </td>

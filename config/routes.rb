@@ -3,15 +3,20 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   root to: 'words#index'
+  get '/:locale' => 'words#index'
 
-  resources :words do
-    collection do
-      get :tags, as: :tags
+  scope "/:locale" do
+
+    resources :words do
+      collection do
+        get :tags, as: :tags
+      end
     end
-  end
 
   # resources :quizzes do
   #   resource :questions
   # end
+
+  end
 
 end
