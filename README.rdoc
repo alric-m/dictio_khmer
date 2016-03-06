@@ -1,6 +1,4 @@
-== DESCRIPTION
-
-This Rails app aims to provide a platform validating your skills obtained in Khmer (from English or French).
+== REQUIREMENT
 
 * Ruby version => 2.2.3
 
@@ -17,12 +15,16 @@ This Rails app aims to provide a platform validating your skills obtained in Khm
 
 == TO DO
 
+* Bette results page
+
 * Better seeds
 
-* Finish quizzes
+* Rspec
 
 * Devise (admin / teacher / student)
 
 * Stats
+
+* Homework
 
 * Badges / Achievements
