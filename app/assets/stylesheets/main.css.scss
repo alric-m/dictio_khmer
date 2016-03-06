@@ -61,3 +61,15 @@ body {
 .table > tbody > tr > td.table-entry {
   vertical-align: middle;
 }
+
+.pagination > .disabled > span, .pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus, .pagination > .disabled > a,
+.pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
+  background-color: #2C3E50;
+}
+
+.pagination > .active > a, .pagination > .active > a:hover,
+.pagination > .active > a:focus, .pagination > .active > span,
+.pagination > .active > span:hover, .pagination > .active > span:focus {
+  background-color: #1a252f;
+}
