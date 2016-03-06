@@ -8,7 +8,7 @@
             <th><strong><%= t('activerecord.attributes.word.definition_fr') %></strong></th>
             <th><strong><%= t('activerecord.attributes.word.definition_en') %></strong></th>
             <th><strong><%= t('activerecord.attributes.word.definition_kh') %></strong></th>
-            <th><strong><%= t('activerecord.attributes.word.phonetic') %></strong></th>
+            <th><strong><%= t('activerecord.attributes.word.definition_ph') %></strong></th>
             <th><strong><%= t('activerecord.attributes.word.word_type') %></strong></th>
             <th><strong><%= t('activerecord.attributes.word.tag_list') %></strong></th>
             <th><strong><%= t('actions.edit') %></strong></th>
@@ -22,9 +22,9 @@
               <td class="table-entry"><%= word.definition_fr || "Non renseigné" %></td>
               <td class="table-entry"><%= word.definition_en || "Non renseigné" %></td>
               <td class="table-entry"><%= word.definition_kh || "Non renseigné" %></td>
-              <td class="table-entry"><%= word.phonetic || "Non renseigné" %></td>
+              <td class="table-entry"><%= word.definition_ph || "Non renseigné" %></td>
               <td class="table-entry"><%= word.word_type || "Non renseigné" %></td>
-              <td class="table-entry"><%= raw word.tag_list.join(', ') %></td>
+              <td class="table-entry"><%= raw word.fr_tag_list.join(', ') %></td>
               <td>
                 <%= link_to edit_word_path(word), class: "btn btn-default" do %>
                   <em class="fa fa-pencil"></em>

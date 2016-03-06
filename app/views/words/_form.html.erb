@@ -22,9 +22,9 @@
           </div>
         </div>
         <div class="form-group">
-          <%= f.label :phonetic, class: "col-lg-2 control-label" %>
+          <%= f.label :definition_ph, class: "col-lg-2 control-label" %>
           <div class="col-lg-10">
-            <%= f.text_field :phonetic, class: "form-control" %>
+            <%= f.text_field :definition_ph, class: "form-control" %>
           </div>
         </div>
         <div class="form-group">
@@ -34,9 +34,15 @@
           </div>
         </div>
         <div class="form-group">
-          <%= f.label :tag_list, class: "col-lg-2 control-label" %>
+          <%= f.label :fr_tag_list, class: "col-lg-2 control-label" %>
           <div class="col-lg-10">
-            <%= f.text_field :tag_list, data: { load: @word_tags }, class: "form-control" %>
+            <%= f.text_field :fr_tag_list, data: { load: @word_fr_tags }, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :en_tag_list, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.text_field :en_tag_list, data: { load: @word_en_tags }, class: "form-control" %>
           </div>
         </div>
         <div class="form-group">
