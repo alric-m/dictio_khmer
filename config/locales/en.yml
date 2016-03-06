@@ -1,6 +1,7 @@
 en:
   dictionary: "Dictionnaire"
   restart: "Restart"
+  question_instructions: "Translate from %{translate_from} to %{translate_to}"
   word_type:
     noun: "Noun"
     adjective: "Adjective"
@@ -25,6 +26,8 @@ en:
       quizzes:
         new: "New quiz"
         show: "Results"
+      questions:
+        edit: "Question %{current_question} / %{questions_count} :"
     attributes:
       word:
         definition_fr: "French translation"

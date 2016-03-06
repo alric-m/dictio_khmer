@@ -1,20 +1,33 @@
 <div class="panel">
   <div class="panel-heading"><%= t('activerecord.controllers.quizzes.show') %></div>
   <div class="panel-body">
-    <%= "#{@quiz.score} / #{@quiz.questions.count}" %>
+    <h1>Bravo!</h1>
+    <h2><%= "Votre score est de : #{@quiz.score} / #{@quiz.questions.count}" %></h2>
 
-    <% @quiz.questions.each do |question| %>
-      <div class="form-group">
-        <label class="col-lg-1 control-label">Réponse</label>
-        <div class="col-lg-5">
-          <%= question.answer %>
-        </div>
-        <label class="col-lg-1 control-label">Réponse</label>
-        <div class="col-lg-5">
-          <%= question.response %>
-        </div>
-      </div>
-    <% end %>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover" id="datatable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th><%= t('activerecord.attributes.question.question_type') %></th>
+            <th><%= t('activerecord.attributes.question.response') %></th>
+            <th><%= t('activerecord.attributes.question.answer') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @quiz.questions.each do |question| %>
+            <tr class=<%= question_result(question) %> >
+              <td><%= @quiz.question_current_index(question) %></td>
+              <td><%= t('question_instructions',
+              translate_from: t("locale.#{question.translate_from}").downcase,
+              translate_to: t("locale.#{question.translate_to}").downcase ) %></td>
+              <td><%= question.response %></td>
+              <td><%= question.answer %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 
     <div class="form-group">
       <%= link_to t('restart'), new_quiz_path, class: "btn btn-primary" %>

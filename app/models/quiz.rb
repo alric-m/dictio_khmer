@@ -40,4 +40,8 @@ class Quiz < ActiveRecord::Base
     self.save!
   end
 
+  def question_current_index question
+    questions.index(question) + 1
+  end
+
 end

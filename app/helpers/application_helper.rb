@@ -30,4 +30,8 @@ module ApplicationHelper
     tags
   end
 
+  def question_result question
+    question.result ? "success" : "danger"
+  end
+
 end

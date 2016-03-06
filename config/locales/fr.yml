@@ -26,6 +26,8 @@ fr:
       quizzes:
         new: "Nouveau quiz"
         show: "Résultats"
+      questions:
+        edit: "Question %{current_question} / %{questions_count} :"
     attributes:
       word:
         definition_fr: "Traduction française"
@@ -47,8 +49,8 @@ fr:
         question_type: "Type de question"
         word_type: "Type de mot"
         themes: "Mot-clé"
-        response: "Réponse donée"
-        answer: "Bonne éponse"
+        response: "Votre réponse"
+        answer: "Bonne réponse"
         result: "Résultat"
   errors:
     models:
