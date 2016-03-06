@@ -41,7 +41,7 @@ li.token-input-token-custom {
   height: auto !important;
   height: 27px !important;
   padding: 2px 6px;
-  background-color: #1a252f;
+  background-color: #2C3E50;
   color: #FFF;
   cursor: default;
   border: 1px solid #ccd5e4;
@@ -51,6 +51,10 @@ li.token-input-token-custom {
   float: left;
   white-space: nowrap;
   margin-right: 5px;
+}
+
+li.token-input-token-custom:hover {
+  background-color: #1a252f;
 }
 
 li.token-input-token-custom p {
