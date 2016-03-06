@@ -1,7 +1,7 @@
 class Word < ActiveRecord::Base
 
   # Tags
-  acts_as_taggable
+  acts_as_taggable_on :fr_tags, :en_tags
 
   # Globalize
   translates :definition
@@ -11,10 +11,14 @@ class Word < ActiveRecord::Base
   has_many :questions
 
   # Validations
-  validates :phonetic, :presence => true
+  validates :word_type, :presence => true
 
-  def tag_list_tokens=(tokens)
-    self.tag_list = tokens.gsub("'", "")
+  def fr_tag_list_tokens=(tokens)
+    self.fr_tag_list = tokens.gsub("'", "")
+  end
+
+  def en_tag_list_tokens=(tokens)
+    self.en_tag_list = tokens.gsub("'", "")
   end
 
 end

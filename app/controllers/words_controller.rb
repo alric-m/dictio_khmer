@@ -38,8 +38,16 @@ class WordsController < ApplicationController
     redirect_to words_path
   end
 
-  def tags
-    tags = Word.all_tag_counts.where("name ~* ?", params[:q]).map{|t| {id: t.name, name: t.name }}
+  def fr_tags
+    tags = Word.tag_counts_on(:fr_tags).where("name ~* ?", params[:q]).map{|t| {id: t.name, name: t.name }}
+
+    respond_to do |format|
+      format.json { render json: tags }
+    end
+  end
+
+  def en_tags
+    tags = Word.tag_counts_on(:en_tags).where("name ~* ?", params[:q]).map{|t| {id: t.name, name: t.name }}
 
     respond_to do |format|
       format.json { render json: tags }
@@ -53,12 +61,13 @@ class WordsController < ApplicationController
     end
 
     def find_tags
-      @word_tags = params[:id].present? ? Word.find(params[:id]).tags.map{|t| {id: t.name, name: t.name }} : []
+      @word_fr_tags = params[:id].present? ? Word.find(params[:id]).fr_tags.map{|t| {id: t.name, name: t.name }} : []
+      @word_en_tags = params[:id].present? ? Word.find(params[:id]).en_tags.map{|t| {id: t.name, name: t.name }} : []
     end
 
     def word_params
       params.require(:word).permit(:definition_fr, :definition_en,
-      :definition_kh, :phonetic, :word_type, :tag_list)
+      :definition_kh, :definition_ph, :word_type, :fr_tag_list, :en_tag_list)
     end
 
 end

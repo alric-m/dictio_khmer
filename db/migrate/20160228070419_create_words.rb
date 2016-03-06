@@ -1,7 +1,6 @@
 class CreateWords < ActiveRecord::Migration
   def up
     create_table :words do |t|
-      t.string  :phonetic
       t.string  :word_type
 
       t.timestamps null: false
