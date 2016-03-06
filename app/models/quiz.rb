@@ -35,9 +35,9 @@ class Quiz < ActiveRecord::Base
   end
 
   def correct!
-    score = @quiz.questions.good_answered.count
-    done = true
-    save!
+    self.score = self.questions.good_answered.count
+    self.done = true
+    self.save!
   end
 
 end

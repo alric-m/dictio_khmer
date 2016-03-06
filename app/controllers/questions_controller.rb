@@ -27,7 +27,8 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question.result = true if params[:question][:response].downcase == @question.answer.downcase
+    @question.response = params[:question][:response]
+    @question.result = true if @question.response.downcase == @question.answer.downcase
     @question.done = true
 
     if @question.update_attributes(question_params)
