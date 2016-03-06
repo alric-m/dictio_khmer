@@ -11,7 +11,7 @@ class Word < ActiveRecord::Base
   has_many :questions
 
   # Validations
-  validates :word_type, :presence => true
+  validates :word_type,     presence: true
 
   def fr_tag_list_tokens=(tokens)
     self.fr_tag_list = tokens.gsub("'", "")

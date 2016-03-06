@@ -43,6 +43,10 @@ gem 'acts-as-taggable-on', '~> 3.4'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  # Testing
+  gem 'rspec-rails', '~> 3.4.0'
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 group :development do
