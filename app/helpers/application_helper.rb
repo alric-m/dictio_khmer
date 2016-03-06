@@ -5,24 +5,29 @@ module ApplicationHelper
   end
 
   def getTypes
-    ["Nom", "Adjectif", "Verbe"]
+    [
+      [t('word_type.noun'), "noun"],
+      [t('word_type.adjectif'), "adjectif"],
+      [t('word_type.verb'), "verb"],
+    ]
   end
 
   def getQuestionTypes
     [
-      ["Francais vers Khmer","fr_to_kh"],
-      ["Francais vers Phonétique", "fr_to_ph"],
-      ["Anglais vers Khmer","en_to_kh"],
-      ["Anglais vers Phonétique", "en_to_ph"],
-      ["Khmer vers Francais", "kh_to_fr"],
-      ["Phonétique vers Francais", "ph_to_fr"],
-      ["Khmer vers Anglais", "kh_to_en"],
-      ["Phonétique vers Anglais", "ph_to_en"]
+      [t('locale.fr'), "fr"],
+      [t('locale.en'), "en"],
+      [t('locale.ph'), "ph"],
+      [t('locale.kh'), "kh"]
     ]
   end
 
   def getThemes
-    Word.all_tags
+    if I18n.locale == :fr
+      tags = Word.tag_counts_on(:fr_tags)
+    else
+      tags = Word.tag_counts_on(:en_tags)
+    end
+    tags
   end
 
 end

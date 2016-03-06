@@ -1,6 +1,16 @@
 fr:
   dictionary: "Dictionnaire"
   restart: "Recommencer"
+  question_instructions: "À traduire du %{translate_from} vers %{translate_to}"
+  word_type:
+    noun: "Nom"
+    adjective: "Adjectif"
+    verb: "Verbe"
+  locale:
+    fr: "Français"
+    en: "Anglais"
+    ph: "Phonetique"
+    kh: "Khmer"
   actions:
     edit: "Éditer"
     delete: "Supprimer"
@@ -15,23 +25,24 @@ fr:
         index: "Tous les mots"
       quizzes:
         new: "Nouveau quiz"
-        show: "Résultat"
+        show: "Résultats"
     attributes:
       word:
-        definition_fr: "Traduction francaise"
+        definition_fr: "Traduction française"
         definition_en: "Traduction anglaise"
         definition_kh: "Traduction khmère"
-        phonetic: "Transcription phonétique"
+        definition_ph: "Transcription phonétique"
         word_type: "Type de mot"
-        tag_list: "Mots-clés"
+        fr_tag_list: "Mots-clés en français"
+        en_tag_list: "Mots-clés en anglais"
       quiz:
         score: "Score"
         timer: "Timer"
         questions_count: "Nombre de questions"
-        default_question_type: "Type de question par défaut"
+        translate_from_default: "À traduire du"
+        translate_to_default: "À traduire en"
         default_word_type: "Type de mot par défaut"
         default_tags: "Mots-clés par défaut"
-        done: "Fait"
       question:
         question_type: "Type de question"
         word_type: "Type de mot"
@@ -39,4 +50,9 @@ fr:
         response: "Réponse donée"
         answer: "Bonne éponse"
         result: "Résultat"
-        done: "Fait"
+  errors:
+    models:
+      quiz:
+        attributes:
+          timer:
+            inclusion: "Doit être compris en 5 et 60"

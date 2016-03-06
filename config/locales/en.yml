@@ -1,5 +1,15 @@
 en:
-  dictionary: "Dictionary"
+  dictionary: "Dictionnaire"
+  restart: "Restart"
+  word_type:
+    noun: "Noun"
+    adjective: "Adjective"
+    verb: "Verb"
+  locale:
+    fr: "French"
+    en: "English"
+    ph: "Phonetic"
+    kh: "Khmer"
   actions:
     edit: "Edit"
     delete: "Delete"
@@ -14,11 +24,27 @@ en:
         index: "All words"
       quizzes:
         new: "New quiz"
+        show: "Results"
     attributes:
       word:
         definition_fr: "French translation"
         definition_en: "English translation"
         definition_kh: "Khmer translation"
-        phonetic: "Phonetic transcription"
+        definition_ph: "Phonetic transcription"
         word_type: "Word type"
-        tag_list: "Keywords"
+        fr_tag_list: "French keywords"
+        en_tag_list: "English keywords"
+      quiz:
+        score: "Score"
+        timer: "Timer"
+        questions_count: "Questions count"
+        default_question_type: "Default question type"
+        default_word_type: "Default word type"
+        default_tags: "Default keywords"
+      question:
+        question_type: "Question type"
+        word_type: "Word type"
+        themes: "Keyword"
+        response: "Response"
+        answer: "Answer"
+        result: "Result"
