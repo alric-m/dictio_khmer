@@ -30,13 +30,24 @@ $(document).ready(function () {
     });
   }
 
-  $('#word_tag_list').tokenInput( '/words/tags.json', {
+  locale = $("body").data("locale");
+
+  $('#word_fr_tag_list').tokenInput( '/' + locale + '/words/fr_tags.json', {
     theme: 'custom',
     minChars: 2,
     allowCustomEntry: true,
     allowFreeTagging: true,
     preventDuplicates: true,
-    prePopulate: $('#word_tag_list').data('load')
+    prePopulate: $('#word_fr_tag_list').data('load')
+  });
+
+  $('#word_en_tag_list').tokenInput( '/' + locale + '/words/en_tags.json', {
+    theme: 'custom',
+    minChars: 2,
+    allowCustomEntry: true,
+    allowFreeTagging: true,
+    preventDuplicates: true,
+    prePopulate: $('#word_en_tag_list').data('load')
   });
 
 });

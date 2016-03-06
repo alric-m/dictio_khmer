@@ -5,11 +5,12 @@ Rails.application.routes.draw do
   root to: 'words#index'
   get '/:locale' => 'words#index'
 
-  scope "/:locale" do
+  scope "/:locale", locale: /fr|en/ do
 
     resources :words do
       collection do
-        get :tags, as: :tags
+        get :fr_tags, as: :fr_tags
+        get :en_tags, as: :en_tags
       end
     end
 
