@@ -2,23 +2,6 @@ class QuestionsController < ApplicationController
   before_filter :get_quiz, only: [:edit, :update, :destroy]
   before_filter :get_question, only: [:edit, :update, :destroy]
 
-  def index
-    @questions = Question.all
-  end
-
-  def new
-    @question = Question.new
-  end
-
-  def create
-    @question = Question.new(question_params)
-    if @question.save
-      redirect_to questions_path
-    else
-      render action: "new"
-    end
-  end
-
   def edit
     @word = @question.word
     @translate_from = @question.translate_from
