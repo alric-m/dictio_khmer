@@ -4,7 +4,8 @@ class CreateQuizzes < ActiveRecord::Migration
       t.integer  :score
       t.integer  :timer
       t.integer  :questions_count
-      t.string   :default_question_type
+      t.string   :translate_from_default
+      t.string   :translate_to_default
       t.string   :default_word_type
       t.string   :default_tags
       t.boolean  :done
@@ -13,7 +14,8 @@ class CreateQuizzes < ActiveRecord::Migration
     create_table :questions do |t|
       t.belongs_to :quiz
       t.belongs_to :word
-      t.string     :question_type
+      t.string     :translate_from
+      t.string     :translate_to
       t.string     :word_type
       t.string     :themes
       t.string     :response

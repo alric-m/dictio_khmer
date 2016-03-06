@@ -2,6 +2,20 @@
   <div class="panel-heading"><%= t('activerecord.controllers.quizzes.show') %></div>
   <div class="panel-body">
     <%= "#{@quiz.score} / #{@quiz.questions.count}" %>
+
+    <% @quiz.questions.each do |question| %>
+      <div class="form-group">
+        <label class="col-lg-1 control-label">Réponse</label>
+        <div class="col-lg-5">
+          <%= question.answer %>
+        </div>
+        <label class="col-lg-1 control-label">Réponse</label>
+        <div class="col-lg-5">
+          <%= question.response %>
+        </div>
+      </div>
+    <% end %>
+
     <div class="form-group">
       <%= link_to t('restart'), new_quiz_path, class: "btn btn-primary" %>
     </div>

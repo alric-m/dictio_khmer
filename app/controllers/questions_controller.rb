@@ -21,36 +21,20 @@ class QuestionsController < ApplicationController
 
   def edit
     @word = @question.word
-    @question_type = @question.question_type
-    if @question_type.include?("kh_to")
-      @word_definition = @word.definition_kh
-    elsif @question_type.include?("fr_to")
-      @word_definition = @word.definition_fr
-    elsif @question_type.include?("en_to")
-      @word_definition = @word.definition_en
-    else
-      @word_definition = @word.phonetic
-    end
+    @translate_from = @question.translate_from
+    @translate_to = @question.translate_to
+    @word_definition = @word.definition(@translate_from)
   end
 
   def update
-    question_type = @question.question_type
-    word = @question.word
-    response = @question.response
-
-    if question_type.include?("to_kh") && word.definition_kh == response ||
-      question_type.include?("to_ph") && word.phonetic == response ||
-      question_type.include?("to_fr") && word.definition_fr == response ||
-      question_type.include?("to_en") && word.definition_en == response
-      @question.result = true
-    end
+    @question.result = true if params[:question][:response].downcase == @question.answer.downcase
     @question.done = true
-
 
     if @question.update_attributes(question_params)
       if @quiz.next_question
         redirect_to edit_quiz_question_path(@quiz, @quiz.next_question.id)
       else
+        @quiz.correct!
         redirect_to quiz_path(@quiz)
       end
     else
@@ -74,8 +58,8 @@ class QuestionsController < ApplicationController
     end
 
     def question_params
-      params.require(:question).permit(:quiz_id, :word_id, :question_type,
-      :word_type, :themes, :response, :result, :finished)
+      params.require(:question).permit(:quiz_id, :word_id, :translate_from,
+      :translate_to, :word_type, :themes, :response, :result, :finished)
     end
 
 end

@@ -19,20 +19,22 @@ ActiveRecord::Schema.define(version: 20160305181554) do
   create_table "questions", force: :cascade do |t|
     t.integer "quiz_id"
     t.integer "word_id"
-    t.string  "question_type"
+    t.string  "translate_from"
+    t.string  "translate_to"
     t.string  "word_type"
     t.string  "themes"
     t.string  "response"
     t.string  "answer"
-    t.boolean "result",        default: false
-    t.boolean "done",          default: false
+    t.boolean "result",         default: false
+    t.boolean "done",           default: false
   end
 
   create_table "quizzes", force: :cascade do |t|
     t.integer "score"
     t.integer "timer"
     t.integer "questions_count"
-    t.string  "default_question_type"
+    t.string  "translate_from_default"
+    t.string  "translate_to_default"
     t.string  "default_word_type"
     t.string  "default_tags"
     t.boolean "done"
@@ -70,7 +72,6 @@ ActiveRecord::Schema.define(version: 20160305181554) do
   add_index "word_translations", ["word_id"], name: "index_word_translations_on_word_id", using: :btree
 
   create_table "words", force: :cascade do |t|
-    t.string   "phonetic"
     t.string   "word_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

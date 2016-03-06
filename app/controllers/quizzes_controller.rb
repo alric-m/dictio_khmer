@@ -21,9 +21,6 @@ class QuizzesController < ApplicationController
   end
 
   def show
-    @quiz.score = @quiz.questions.good_answered.count
-    @quiz.done = true
-    @quiz.save!
   end
 
   def destroy

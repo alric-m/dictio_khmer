@@ -1,18 +1,41 @@
 <div class="panel">
   <div class="panel-heading"><%= t('activerecord.controllers.quizzes.new') %></div>
   <div class="panel-body">
+    <% if @quiz.errors.full_messages.count > 0 %>
+      <div class="alert alert-dismissible alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&close;</button>
+        <strong>Oh snap!</strong>
+        <ul>
+          <% @quiz.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <%= form_for @quiz, html: { class: "form-horizontal" } do |f| %>
       <fieldset>
         <div class="form-group">
           <%= f.label :questions_count, class: "col-lg-2 control-label" %>
           <div class="col-lg-10">
-            <%= f.select :questions_count, options_for_select(["5", "10", "15", "20"]), {}, required: "required", class: "form-control" %>
+            <%= f.select :questions_count, options_for_select(["5", "10", "15", "20"]), {}, class: "form-control" %>
           </div>
         </div>
         <div class="form-group">
-          <%= f.label :default_question_type, class: "col-lg-2 control-label" %>
+          <%= f.label :timer, class: "col-lg-2 control-label" %>
           <div class="col-lg-10">
-            <%= f.select :default_question_type, options_for_select(getQuestionTypes), {}, multiple: "multiple", class: "form-control" %>
+            <%= f.number_field :timer, in: 1...61, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :translate_from_default, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.select :translate_from_default, options_for_select(getQuestionTypes), { include_blank: true }, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :translate_to_default, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.select :translate_to_default, options_for_select(getQuestionTypes), { include_blank: true }, class: "form-control" %>
           </div>
         </div>
         <div class="form-group">

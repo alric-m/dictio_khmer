@@ -1,10 +1,12 @@
 <div class="panel">
-  <div class="panel-heading"><%= t('activerecord.controllers.quizzes.new') %></div>
+  <div class="panel-heading"><%= t('activerecord.controllers.question.edit') %></div>
   <div class="panel-body">
     <%= form_for [@quiz, @question], html: { class: "form-horizontal" } do |f| %>
       <fieldset>
         <legend>
-          <%= f.label :questions %>
+          <%= t('question_instructions',
+          translate_from: t("locale.#{@question.translate_from}").downcase,
+          translate_to: t("locale.#{@question.translate_to}").downcase ) %>
         </legend>
         <div class="form-group">
           <%= f.label @word_definition, class: "col-lg-2 control-label" %>
@@ -14,6 +16,6 @@
         </div>
       </fieldset>
       <%= f.submit "Valider", class: "btn btn-primary" %>
-    <% end -%>
+    <% end %>
   </div>
 </div>
