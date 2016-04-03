@@ -4,8 +4,7 @@
     <table id="datatable" class="table table-striped table-hover">
       <thead>
         <tr>
-          <th><strong><%= t('activerecord.attributes.word.definition_fr') %></strong></th>
-          <th><strong><%= t('activerecord.attributes.word.definition_en') %></strong></th>
+          <th><strong><%= t('activerecord.attributes.word.definition_' + I18n.locale.to_s) %></strong></th>
           <th><strong><%= t('activerecord.attributes.word.definition_kh') %></strong></th>
           <th><strong><%= t('activerecord.attributes.word.definition_ph') %></strong></th>
           <th><strong><%= t('activerecord.attributes.word.word_type') %></strong></th>
@@ -17,8 +16,7 @@
       <tbody>
         <% @words.each do |word| %>
           <tr>
-            <td class="table-entry"><%= word.definition_fr || "Non renseigné" %></td>
-            <td class="table-entry"><%= word.definition_en || "Non renseigné" %></td>
+            <td class="table-entry"><%= word.definition(I18n.locale) || "Non renseigné" %></td>
             <td class="table-entry"><%= word.definition_kh || "Non renseigné" %></td>
             <td class="table-entry"><%= word.definition_ph || "Non renseigné" %></td>
             <td class="table-entry"><%= word.word_type || "Non renseigné" %></td>

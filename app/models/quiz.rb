@@ -1,6 +1,7 @@
 class Quiz < ActiveRecord::Base
 
-  has_many  :questions, dependent: :destroy
+  belongs_to  :student
+  has_many    :questions, dependent: :destroy
 
   scope :done,     -> { where(done: true) }
   scope :not_done, -> { where(done: false) }
@@ -42,6 +43,10 @@ class Quiz < ActiveRecord::Base
 
   def question_current_index question
     questions.index(question) + 1
+  end
+
+  def complete_score
+      score.to_s + " / " + questions.count.to_s unless score.nil?
   end
 
 end

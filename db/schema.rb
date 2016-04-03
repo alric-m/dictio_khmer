@@ -11,33 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403123229) do
+ActiveRecord::Schema.define(version: 20160403140022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "questions", force: :cascade do |t|
-    t.integer "quiz_id"
-    t.integer "word_id"
-    t.string  "translate_from"
-    t.string  "translate_to"
-    t.string  "word_type"
-    t.string  "themes"
-    t.string  "response"
-    t.string  "answer"
-    t.boolean "result",         default: false
-    t.boolean "done",           default: false
+    t.integer  "quiz_id"
+    t.integer  "word_id"
+    t.string   "translate_from"
+    t.string   "translate_to"
+    t.string   "word_type"
+    t.string   "themes"
+    t.string   "response"
+    t.string   "answer"
+    t.boolean  "result",         default: false
+    t.boolean  "done",           default: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "quizzes", force: :cascade do |t|
-    t.integer "score"
-    t.integer "timer"
-    t.integer "questions_count"
-    t.string  "translate_from_default"
-    t.string  "translate_to_default"
-    t.string  "default_word_type"
-    t.string  "default_tags"
-    t.boolean "done"
+    t.integer  "score"
+    t.integer  "timer"
+    t.integer  "questions_count"
+    t.string   "translate_from_default"
+    t.string   "translate_to_default"
+    t.string   "default_word_type"
+    t.string   "default_tags"
+    t.boolean  "done"
+    t.integer  "student_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "taggings", force: :cascade do |t|

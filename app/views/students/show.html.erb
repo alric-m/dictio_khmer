@@ -1,0 +1,35 @@
+<div class="panel">
+  <div class="panel-heading"><%= t('my_account') %></div>
+  <div class="panel-body">
+    <h2>Mes quizzes</h2>
+    <table class="table table-striped table-hover" id="datatable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th><%= t('done_at') %></th>
+          <th><%= t('activerecord.attributes.quiz.timer') %></th>
+          <th><%= t('activerecord.attributes.quiz.questions_count') %></th>
+          <th><%= t('activerecord.attributes.quiz.default_word_type') %></th>
+          <th><%= t('activerecord.attributes.quiz.default_tags') %></th>
+          <th><%= t('activerecord.attributes.quiz.score') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @quizzes.each_with_index do |quiz, index| %>
+          <tr>
+            <td><%= index %></td>
+            <td><%= quiz.created_at.strftime("%d/%m/%Y")  %></td>
+            <td><%= quiz.timer || "--" %></td>
+            <td><%= quiz.questions_count %></td>
+            <td><%= quiz.default_word_type || "--" %></td>
+            <td><%= quiz.default_tags || "--" %></td>
+            <td><%= quiz.complete_score || "--" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <h2>Mes Devoirs</h2>
+    <hr>
+    <h2>Mes Stats</h2>
+  </div>
+</div>

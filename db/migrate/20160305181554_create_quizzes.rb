@@ -9,6 +9,7 @@ class CreateQuizzes < ActiveRecord::Migration
       t.string   :default_word_type
       t.string   :default_tags
       t.boolean  :done
+      t.timestamps null: false
     end
 
     create_table :questions do |t|
@@ -22,6 +23,7 @@ class CreateQuizzes < ActiveRecord::Migration
       t.string     :answer
       t.boolean    :result, default: false
       t.boolean    :done, default: false
+      t.timestamps null: false
     end
   end
 

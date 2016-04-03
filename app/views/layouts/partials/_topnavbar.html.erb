@@ -4,14 +4,21 @@
       <%= link_to "DictioKhmer", root_path, class: "navbar-brand" %>
     </div>
 
-    <ul class="nav navbar-nav navbar-right">
-      <% if user_signed_in? %>
-        <li><%= link_to t('logout'),  destroy_user_session_path, :method => :delete %>
-      <% else %>
-        <li><%= link_to t('sign_in'), new_user_session_path %></li>
-        <li><%= link_to t('sign_up'), new_student_registration_path %></li>
-      <% end %>
-    </ul>
+    <% if user_signed_in? %>
+      <ul class="nav navbar-nav navbar-left">
+        <li>
+          <% if current_user.is_student? %>
+            <%= link_to student_path(current_user) do %>
+              <em class="fa fa-user"></em>
+            <% end %>
+          <% elsif current_user.is_teacher? %>
+            <%= link_to teacher_path(current_user) do %>
+              <em class="fa fa-user"></em>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
 
     <ul class="nav navbar-nav navbar-right">
       <li>
@@ -24,6 +31,13 @@
           <span class="flag-icon flag-icon-fr <%= 'grayed' if I18n.locale == :fr %>"></span>
         <% end %>
       </li>
+
+      <% if user_signed_in? %>
+        <li><%= link_to t('logout'),  destroy_user_session_path, :method => :delete %>
+      <% else %>
+        <li><%= link_to t('sign_in'), new_user_session_path %></li>
+        <li><%= link_to t('sign_up'), new_student_registration_path %></li>
+      <% end %>
     </ul>
   </div>
 </nav>
