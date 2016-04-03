@@ -2,6 +2,16 @@ FactoryGirl.define do
 
   ##################
   #                #
+  #  USER FACTORY  #
+  #                #
+  ##################
+
+  factory :user do
+
+  end
+
+  ##################
+  #                #
   #  WORD FACTORY  #
   #                #
   ##################

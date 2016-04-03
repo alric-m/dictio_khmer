@@ -2,6 +2,8 @@ fr:
   dictionary: "Dictionnaire"
   restart: "Recommencer"
   question_instructions: "À traduire du %{translate_from} vers %{translate_to}"
+  sign_in: "Connection"
+  sign_up: "Inscription"
   word_type:
     noun: "Nom"
     adjective: "Adjectif"
@@ -52,9 +54,29 @@ fr:
         response: "Votre réponse"
         answer: "Bonne réponse"
         result: "Résultat"
+      user:
+        first_name: "Prénom"
+        last_name: "Nom"
+        avatar: "Avatar"
+        email: "E-mail"
+        password: "Mot de passe"
+        password_confirmation: "Confirmation du mot de passe"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "ne peut être vide"
+            password:
+              blank: "ne peut être vide"
+            password_confirmation:
+              blank: "ne peut être vide"
   errors:
-    models:
-      quiz:
-        attributes:
-          timer:
-            inclusion: "Doit être compris en 5 et 60"
+    quiz:
+      attributes:
+        timer:
+          inclusion: "Doit être compris en 5 et 60"
+    messages:
+      not_saved:
+        one: "1  erreur :"
+        other: "%{count} erreurs :"

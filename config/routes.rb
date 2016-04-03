@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   scope "/:locale", locale: /fr|en/ do
 
+    devise_for :users
+    devise_for :students, :teachers, :skip => :sessions
+
     resources :words do
       collection do
         get :fr_tags, as: :fr_tags

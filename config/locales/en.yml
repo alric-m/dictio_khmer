@@ -2,6 +2,8 @@ en:
   dictionary: "Dictionnaire"
   restart: "Restart"
   question_instructions: "Translate from %{translate_from} to %{translate_to}"
+  sign_in: "Sign in"
+  sign_up: "Sign up"
   word_type:
     noun: "Noun"
     adjective: "Adjective"
