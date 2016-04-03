@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def current_controller? controller_name
+    params[:controller] == controller_name
+  end
+
   def word_count
     Word.all.count
   end

@@ -15,6 +15,15 @@ body {
 .navbar {
   margin-bottom: 0px;
   z-index: 117;
+  border-radius: 0;
+}
+
+ul.navbar-right {
+  margin-right: 5px;
+
+  li:hover {
+    background-color: #1a252f;
+  }
 }
 
 .sidebar-wrapper {
@@ -31,14 +40,21 @@ body {
 }
 
 #sidebar > li.nav-heading {
-  padding: 12px 15px;
-  color: #919DA8;
+  padding: 15px;
   font-size: 14px;
   letter-spacing: .04em;
+  cursor: pointer;
 }
 
-#sidebar > li > a {
-  padding-left: 40px;
+#sidebar > div > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 40px;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #ecf0f1;
+  }
 }
 
 .wrapper > aside {
@@ -72,4 +88,11 @@ body {
 .pagination > .active > a:focus, .pagination > .active > span,
 .pagination > .active > span:hover, .pagination > .active > span:focus {
   background-color: #1a252f;
+}
+
+label.required:after{ content:" *" }
+
+.grayed {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
 }
