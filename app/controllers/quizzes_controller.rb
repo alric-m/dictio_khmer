@@ -35,7 +35,8 @@ class QuizzesController < ApplicationController
 
     def quiz_params
       params.require(:quiz).permit(:score, :timer, :questions_count,
-      :default_question_type, :default_word_type, :default_themes, :done)
+      :default_question_type, :default_word_type, :default_themes,
+      :teacher_id, :student_id, :done)
     end
 
 end

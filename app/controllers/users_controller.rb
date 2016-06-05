@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :get_user, only: [:show, :destroy]
 
   def index
-    @users = Student.all
+    @users = User.where(type: params[:type])
   end
 
   def show
