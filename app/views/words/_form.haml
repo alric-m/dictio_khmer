@@ -1,0 +1,39 @@
+.panel
+  .panel-heading Création d'une nouvelle entrée
+  .panel-body
+    - if word.errors.full_messages.count > 0
+      = render partial: 'shared/errors', locals: { errors: word.errors }
+
+    = form_for word, html: { class: "form-horizontal" } do |f|
+      %fieldset
+        .form-group
+          = f.label :definition_fr, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.text_field :definition_fr, class: "form-control"
+        .form-group
+          = f.label :definition_en, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.text_field :definition_en, class: "form-control"
+        .form-group
+          = f.label :definition_kh, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.text_field :definition_kh, class: "form-control"
+        .form-group
+          = f.label :definition_ph, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.text_field :definition_ph, class: "form-control"
+        .form-group
+          = f.label :word_type, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.select :word_type, options_for_select(getTypes), {}, class: "form-control"
+        .form-group
+          = f.label :fr_tag_list, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.text_field :fr_tag_list, data: { load: @word_fr_tags }, class: "form-control"
+        .form-group
+          = f.label :en_tag_list, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.text_field :en_tag_list, data: { load: @word_en_tags }, class: "form-control"
+        .form-group
+          .col-lg-10.col-lg-offset-2
+            = f.submit I18n.t('actions.validate'), class: "btn btn-primary"

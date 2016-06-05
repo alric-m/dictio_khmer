@@ -1,0 +1,26 @@
+.panel
+  .panel-heading= t('activerecord.controllers.quizzes.show')
+  .panel-body
+    %h1 Bravo!
+    %h2= "Votre score est de : #{@quiz.score} / #{@quiz.questions.count}"
+
+    .table-responsive
+      %table.table.table-striped.table-hover#datatable
+        %thead
+          %tr
+            %th #
+            %th= t('activerecord.attributes.question.question_type')
+            %th= t('activerecord.attributes.question.response')
+            %th= t('activerecord.attributes.question.answer')
+        %tbody
+          - @quiz.questions.each do |question|
+            %tr{ class: question_result(question) }
+              %td= @quiz.question_current_index(question)
+              %td= t('question_instructions',
+              translate_from: t("locale.#{question.translate_from}").downcase,
+              translate_to: t("locale.#{question.translate_to}").downcase )
+              %td= question.response
+              %td= question.answer
+
+    .form-group
+      = link_to t('restart'), new_quiz_path, class: "btn btn-primary"

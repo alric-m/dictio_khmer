@@ -1,0 +1,33 @@
+.panel
+  .panel-heading= t('activerecord.controllers.quizzes.new')
+  .panel-body
+    - if @quiz.errors.full_messages.count > 0
+      = render partial: '../shared/errors', locals: { errors: @quiz.errors }
+
+    = form_for @quiz, html: { class: "form-horizontal" } do |f|
+      %fieldset
+        .form-group
+          = f.label :questions_count, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.select :questions_count, options_for_select(["5", "10", "15", "20"]), {}, class: "form-control"
+        .form-group
+          = f.label :timer, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.number_field :timer, in: 1...61, class: "form-control"
+        .form-group
+          = f.label :translate_from_default, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.select :translate_from_default, options_for_select(getQuestionTypes), { include_blank: true }, class: "form-control"
+        .form-group
+          = f.label :translate_to_default, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.select :translate_to_default, options_for_select(getQuestionTypes), { include_blank: true }, class: "form-control"
+        .form-group
+          = f.label :default_word_type, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.select :default_word_type, options_for_select(getTypes), {}, multiple: "multiple", class: "form-control"
+        .form-group
+          = f.label :default_tags, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.select :default_tags, options_for_select(getThemes), {}, multiple: "multiple", class: "form-control"
+      = f.submit "Valider", class: "btn btn-primary"

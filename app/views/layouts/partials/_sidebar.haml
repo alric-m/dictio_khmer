@@ -1,0 +1,14 @@
+%aside
+  .sidebar-wrapper
+    %ul#sidebar.nav.nav-stacked.affix
+      %li.nav-heading{ :'data-toggle' => "collapse", :'data-target' => "#words" }
+        = fa_icon "book"
+        %span= t('activerecord.models.word')
+      #words.panel-collapse.collapse{ class: ('in' if current_controller?('words')) }
+        %li= link_to I18n.t('activerecord.controllers.words.index'), words_path
+        %li= link_to I18n.t('activerecord.controllers.words.new'), new_word_path
+      %li.nav-heading{ :'data-toggle' => "collapse", :'data-target' => "#quiz" }
+        = fa_icon "question"
+        %span= t('activerecord.models.quiz')
+      #quiz.panel-collapse.collapse{ class: ('in' if current_controller?('quizzes')) }
+        %li= link_to I18n.t('activerecord.controllers.quizzes.new'), new_quiz_path

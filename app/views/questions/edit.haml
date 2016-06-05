@@ -1,0 +1,18 @@
+.panel
+  .panel-heading= t('activerecord.controllers.questions.edit',
+    current_question: @quiz.question_current_index(@quiz.next_question),
+    questions_count: @quiz.questions.count)
+  .panel-body
+    = form_for [@quiz, @question], html: { class: "form-horizontal edit-question", data: { timer: @quiz.timer } } do |f|\
+      %fieldset
+        %legend
+          = t('question_instructions',
+          translate_from: t("locale.#{@question.translate_from}").downcase,
+          translate_to: t("locale.#{@question.translate_to}").downcase )
+        .progress.progress-striped.active
+          .progress-bar.progress-bar-success.timer-progressbar{ style: "width: 100%" }
+        .form-group
+          = f.label @word_definition, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.text_field :response, class: "form-control"
+      = f.submit "Valider", class: "btn btn-primary"

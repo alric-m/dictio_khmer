@@ -1,0 +1,36 @@
+.panel
+  .panel-heading Dictionnaire
+  .panel-body
+    %table#datatable.table.table-striped.table-hover
+      %thead
+        %tr
+          %th
+            %strong= t('activerecord.attributes.word.definition_' + I18n.locale.to_s)
+          %th
+            %strong= t('activerecord.attributes.word.definition_kh')
+          %th
+            %strong= t('activerecord.attributes.word.definition_ph')
+          %th
+            %strong= t('activerecord.attributes.word.word_type')
+          %th
+            %strong= t('activerecord.attributes.word.tag_list')
+          %th
+            %strong= t('actions.edit')
+          %th
+            %strong= t('actions.delete')
+      %tbody>
+        - @words.each do |word|
+          %tr>
+            %td.table-entry= word.definition(I18n.locale) || "Non renseigné"
+            %td.table-entry= word.definition_kh || "Non renseigné"
+            %td.table-entry= word.definition_ph || "Non renseigné"
+            %td.table-entry= word.word_type || "Non renseigné"
+            %td.table-entry= raw word.fr_tag_list.join(', ')
+            %td
+              = link_to edit_word_path(word), class: "btn btn-default" do
+                %em.fa.fa-pencil
+                %span= t('actions.edit')
+            %td
+              = link_to word, method: :delete, class: "btn btn-danger", data: { confirm: 'Etes-vous sûr de vouloir supprimer ce post-it ?' } do
+                %em.fa.fa-trash
+                %span= t('actions.delete')

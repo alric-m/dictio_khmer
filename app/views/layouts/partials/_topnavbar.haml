@@ -1,0 +1,24 @@
+%nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      = link_to "DictioKhmer", root_path, class: "navbar-brand"
+
+    - if user_signed_in?
+      %ul.nav.navbar-nav.navbar-left
+        %li
+          = link_to user_path(current_user) do
+            %em.fa.fa-user
+
+    %ul.nav.navbar-nav.navbar-right
+      %li
+        = link_to locale: :en do
+          %span.flag-icon.flag-icon-gb{ class: ('grayed' if I18n.locale == :en) }
+      %li
+        = link_to locale: :fr do
+          %span.flag-icon.flag-icon-fr{ class: ('grayed' if I18n.locale == :fr) }
+
+      - if user_signed_in?
+        %li= link_to t('logout'),  destroy_student_session_path, :method => :delete
+      - else
+        %li= link_to t('sign_in'), new_user_session_path
+        %li= link_to t('sign_up'), new_student_registration_path
