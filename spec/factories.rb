@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :admin do
+    
+  end
 
   ##################
   #                #
@@ -16,14 +19,6 @@ FactoryGirl.define do
   #                #
   ##################
 
-  factory :hi, class: Word do
-    definition_fr  'Salut'
-    definition_en  'Hi'
-    definition_kh  'សួស្តី'
-    definition_ph  'Susdey'
-    word_type      'noun'
-  end
-
   factory :thanks, class: Word do
     definition_fr  'Merci'
     definition_en  'Thank you'
@@ -40,9 +35,20 @@ FactoryGirl.define do
   end
 
   factory :definition_missing, class: Word do
-    definition_fr  'Merci'
-    definition_ph  'Orkon'
     word_type      'noun'
   end
+
+  ##################
+  #                #
+  #  QUIZ FACTORY  #
+  #                #
+  ##################
+
+  factory :quiz do
+    questions_count 5
+    translate_from_default  'fr'
+    translate_to_default    'kh'
+  end
+
 
 end
