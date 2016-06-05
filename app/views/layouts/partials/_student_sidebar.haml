@@ -1,0 +1,5 @@
+%li.nav-heading{ data: { toggle: "collapse", target: "#quiz" } }
+  = fa_icon "question"
+  %span= t('activerecord.models.quiz')
+#quiz.panel-collapse.collapse{ class: ('in' if current_controller?('quizzes')) }
+  %li= link_to I18n.t('activerecord.controllers.quizzes.new'), new_quiz_path

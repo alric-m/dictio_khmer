@@ -19,7 +19,7 @@
               %strong= t('actions.edit')
             %th
               %strong= t('actions.delete')
-      %tbody>
+      %tbody
         - @words.each do |word|
           %tr>
             %td.table-entry= word.definition(I18n.locale) || "Non renseigné"

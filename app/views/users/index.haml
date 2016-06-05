@@ -1,0 +1,41 @@
+.panel
+  .panel-heading Student
+  .panel-body
+    %table#datatable.table.table-striped.table-hover
+      %thead
+        %tr
+          %th
+            %strong= t('activerecord.attributes.user.first_name')
+          %th
+            %strong= t('activerecord.attributes.user.last_name')
+          %th
+            %strong= t('activerecord.attributes.user.email')
+          %th
+            %strong= t('activerecord.attributes.user.country')
+          %th
+            %strong= t('activerecord.attributes.user.quizzes')
+          - if current_user && current_user.is_admin?
+            %th
+              %strong= t('actions.edit')
+            %th
+              %strong= t('actions.delete')
+      %tbody
+        - @users.each do |user|
+          %tr>
+            %td.table-entry= user.first_name
+            %td.table-entry= user.last_name
+            %td.table-entry= mail_to user.email
+            %td.table-entry= user.country || "Non renseigné"
+            %td.table-entry
+              = link_to user_path(user), class: "btn btn-default" do
+                %em.fa.fa-eye
+                %span= t('actions.show')
+            - if current_admin
+              %td
+                = link_to edit_user_path(user), class: "btn btn-default" do
+                  %em.fa.fa-pencil
+                  %span= t('actions.edit')
+              %td
+                = link_to user, method: :delete, class: "btn btn-danger", data: { confirm: 'Etes-vous sûr de vouloir supprimer ce post-it ?' } do
+                  %em.fa.fa-trash
+                  %span= t('actions.delete')

@@ -7,9 +7,7 @@
       #words.panel-collapse.collapse{ class: ('in' if current_controller?('words')) }
         %li= link_to I18n.t('activerecord.controllers.words.index'), words_path
         %li= link_to I18n.t('activerecord.controllers.words.new'), new_word_path
-      - if current_student || current_admin
-        %li.nav-heading{ data: { toggle: "collapse", target: "#quiz" } }
-          = fa_icon "question"
-          %span= t('activerecord.models.quiz')
-        #quiz.panel-collapse.collapse{ class: ('in' if current_controller?('quizzes')) }
-          %li= link_to I18n.t('activerecord.controllers.quizzes.new'), new_quiz_path
+      - if current_user
+        = render partial: "layouts/partials/#{current_user.type.downcase}_sidebar"
+      - else
+        = render partial: "layouts/partials/student_sidebar"

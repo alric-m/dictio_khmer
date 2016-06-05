@@ -1,0 +1,5 @@
+%li.nav-heading{ data: { toggle: "collapse", target: "#student" } }
+  = fa_icon "users"
+  %span= t('activerecord.models.student')
+#student.panel-collapse.collapse{ class: ('in' if current_controller?('students')) }
+  %li= link_to I18n.t('activerecord.controllers.students.index'), students_path
