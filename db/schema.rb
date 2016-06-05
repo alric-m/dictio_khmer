@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403140022) do
+ActiveRecord::Schema.define(version: 20160605145829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,14 +21,12 @@ ActiveRecord::Schema.define(version: 20160403140022) do
     t.integer  "word_id"
     t.string   "translate_from"
     t.string   "translate_to"
-    t.string   "word_type"
-    t.string   "themes"
     t.string   "response"
     t.string   "answer"
     t.boolean  "result",         default: false
     t.boolean  "done",           default: false
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "quizzes", force: :cascade do |t|
@@ -40,9 +38,8 @@ ActiveRecord::Schema.define(version: 20160403140022) do
     t.string   "default_word_type"
     t.string   "default_tags"
     t.boolean  "done"
-    t.integer  "student_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -78,6 +75,8 @@ ActiveRecord::Schema.define(version: 20160403140022) do
     t.inet     "last_sign_in_ip"
     t.string   "first_name"
     t.string   "last_name"
+    t.date     "birth_date"
+    t.string   "country"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "avatar_file_name"

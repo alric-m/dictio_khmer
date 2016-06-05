@@ -17,8 +17,6 @@ class CreateQuizzes < ActiveRecord::Migration
       t.belongs_to :word
       t.string     :translate_from
       t.string     :translate_to
-      t.string     :word_type
-      t.string     :themes
       t.string     :response
       t.string     :answer
       t.boolean    :result, default: false

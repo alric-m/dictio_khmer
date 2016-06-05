@@ -1,6 +1,6 @@
-class DeviseCreateUsers < ActiveRecord::Migration
-  def up
-    create_table(:users) do |t|
+class AddDeviseToUsers < ActiveRecord::Migration
+  def self.up
+    create_table :users do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -30,23 +30,28 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      ## Misc
-      t.string   :first_name
-      t.string   :last_name
+      # Custom fields
+      t.string  :first_name
+      t.string  :last_name
+      t.date    :birth_date
+      t.string  :country
 
+      # Uncomment below if timestamps were not included in your original model.
       t.timestamps null: false
     end
+
+    add_attachment :users, :avatar
+
+    # STI
+    add_column :users, :type, :string
 
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
-
-    add_attachment :users, :avatar
   end
 
-  def down
+  def self.down
     drop_table :users
   end
-
 end
