@@ -14,13 +14,13 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }.merge options
   end
 
-  %w(Student Teacher).each do |user_type|
+  %w(Admin Student Teacher).each do |user_type|
     define_method "current_#{user_type.underscore}" do
-        current_account if current_account.is_a?(user_type.constantize)
+      current_user if current_user.is_a?(user_type.constantize)
     end
 
-    define_method "authenticate_#{user_type.underscore}!" do
-      |opts={}| send("current_#{user_type.underscore}") || not_authorized
+    define_method "authenticate_#{user_type.underscore}!" do |opts={}|
+      send("current_#{user_type.underscore}") || not_authorized
     end
   end
 
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
   protected
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name, :avatar]
+      devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name, :avatar, :birth_date, :country]
     end
 
 end
