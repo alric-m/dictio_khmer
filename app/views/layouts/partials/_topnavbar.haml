@@ -18,7 +18,7 @@
           %span.flag-icon.flag-icon-fr{ class: ('grayed' if I18n.locale == :fr) }
 
       - if user_signed_in?
-        %li= link_to t('logout'),  destroy_student_session_path, :method => :delete
+        %li= link_to t('logout'),  destroy_user_session_path, :method => :delete
       - else
         %li= link_to t('sign_in'), new_user_session_path
         %li= link_to t('sign_up'), new_student_registration_path

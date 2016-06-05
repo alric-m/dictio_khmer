@@ -1,5 +1,6 @@
 .alert.alert-dismissible.alert-danger
-  %button.close{ type: "button", :'data-dismiss' => "alert" } &close;
+  %button.close{ type: "button", :'data-dismiss' => "alert" }
+    %em.fa.fa-times
   %strong Oh snap!
   %ul
     - errors.full_messages.each do |message|
