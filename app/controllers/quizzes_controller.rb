@@ -13,7 +13,6 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.new(quiz_params)
 
     if @quiz.save
-      @quiz.build_questions
       redirect_to edit_quiz_question_path(@quiz, @quiz.next_question)
     else
       render action: "new"

@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def word_count
-    Word.all.count
+    Word.count
   end
 
   def getTypes

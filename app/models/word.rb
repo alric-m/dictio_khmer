@@ -17,7 +17,7 @@ class Word < ActiveRecord::Base
   def definitions_presence
     [:kh, :ph, :en, :fr].each do |locale|
       if definition_translations[locale].blank?
-        errors.add("definition_#{locale} empty")
+        errors.add("definition_#{locale}", " empty")
       end
     end
   end
