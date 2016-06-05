@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-  before_filter :get_quiz, only: [:edit, :update, :destroy]
-  before_filter :get_question, only: [:edit, :update, :destroy]
+  before_filter :get_quiz, only: [:edit, :update]
+  before_filter :get_question, only: [:edit, :update]
 
   def edit
     @word = @question.word
@@ -26,11 +26,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def destroy
-    @question.destroy
-    redirect_to questions_path
-  end
-
   private
 
     def get_quiz
@@ -43,7 +38,7 @@ class QuestionsController < ApplicationController
 
     def question_params
       params.require(:question).permit(:quiz_id, :word_id, :translate_from,
-      :translate_to, :word_type, :themes, :response, :result, :finished)
+      :translate_to, :response, :result, :finished)
     end
 
 end
