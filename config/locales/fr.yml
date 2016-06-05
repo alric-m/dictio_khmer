@@ -4,6 +4,7 @@ fr:
   question_instructions: "À traduire du %{translate_from} vers %{translate_to}"
   sign_in: "Connection"
   sign_up: "Inscription"
+  logout: "Déconnection"
   done_at: "Fait le"
   word_type:
     noun: "Nom"

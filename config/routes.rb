@@ -8,22 +8,15 @@ Rails.application.routes.draw do
   scope "/:locale", locale: /fr|en/ do
 
     devise_for :users, skip: [:registrations]
-    devise_for :students, :teachers, :skip => :sessions
+    # FIXME - prevent sessions for admins students ans teachers
+    devise_for :admins, skip: [:registrations]
+    devise_for :students#, skip: :sessions
+    devise_for :teachers#, skip: :sessions
 
-    # routes for all users
-    authenticated :user do
-    end
-
-    # routes only for students
-    authenticated :student, lambda {|u| u.type == "Student"} do
-    end
-
-    # routes only for teachers
-    authenticated :teacher, lambda {|u| u.type == "Teacher"} do
-    end
-
-    resources :students
-    resources :teachers
+    resources :users
+    resources :students, controller: 'users', type: 'Student'
+    resources :teachers, controller: 'users', type: 'Teacher'
+    resources :admins, controller: 'users', type: 'Admin'
 
     resources :words do
       collection do
