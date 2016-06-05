@@ -1,8 +1,8 @@
 == REQUIREMENT
 
-* Ruby version => 2.2.3
+* Ruby version => 2.3
 
-* Rails version => 4.2.5.2
+* Rails version => 4.2.6
 
 == HOW TO
 
@@ -15,16 +15,14 @@
 
 == TO DO
 
-* Bette results page
+* Rspec
+
+* Homework and assignments
+
+* Better results page
 
 * Better seeds
 
-* Rspec
-
-* Devise (admin / teacher / student)
-
 * Stats
-
-* Homework
 
 * Badges / Achievements
